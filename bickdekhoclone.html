@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>c</title>
+        <link rel="stylesheet" href="../font-awesome-4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Comme:wght@300&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100&family=Roboto:wght@300&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                list-style-type: none;
+                text-decoration: none;
+                font-family: 'Roboto', sans-serif;
+            }
+            body {
+              background-color: rgb(250,250,250);
+            }
+            .hadder-wraper {
+              width: 100%;
+              height: 70px;
+              border-bottom:1px solid rgb(160,162,163) ;
+            }
+            .hadder-wraper .hadder {
+              width: 1200px;
+              margin: 0 auto;
+              display: flex;
+              
+            }
+            .logo-wraper {
+              width: 20%;
+            }
+            .logo-wraper img {
+              padding-top: 15px;
+              height: 50px;
+              width: 170px;
+            }
+            .search-wraper {
+              width: 50%;
+              padding-top: 14px;
+            }
+            .search-wraper input {
+              width: 400px;
+              height: 40px;
+              border: 1px solid white;
+              position: relative;
+              background-color: rgb(247,247,247);
+              border: 1px solid rgb(247,247,247);
+              color: rgb(160,162,163);
+            }
+            .search-wraper button {
+              height: 40px;
+              width: 41px;
+               position: absolute;
+               background-color: rgb(36,39,44);
+               border: 1px solid rgb(36,39,44);
+               border-top-right-radius:5px ;
+               border-bottom-right-radius:5px ;
+            }
+            .search-wraper button i {
+              color: white;
+            }
+            .login-wraper {
+              width: 20%;
+              display: flex;
+              justify-content: space-between;
+            }
+            .laguage-wraper {
+              padding-top: 22px;
+            }
+            .laguage-wraper span {
+              border: 2px solid rgba(105, 103, 103, 0.15);
+               padding: 5px;
+            }
+            .laguage-wraper .language-ul {
+              display: none;
+            }
+            .laguage-wraper span:hover .language-ul {
+              display: block;
+            }
+            .language-ul li {
+              border: 1px solid;
+              height: 25px;
+              width: 70px;
+              text-align: center;
+            }
+            .li-eng {
+              border-bottom: none ;
+            }
+            .login-register-wraper {
+              padding-top: 20px;
+            }
+            .login-register-wraper a {
+              color: black;
+            }
+            .second-hadder-wraper {
+              width: 100%;
+              height: 70px;
+            }
+            .hadder-list-wraper {
+              width: 1300px;
+              margin: 0 auto;
+            }
+            .hadder-list{
+              display: flex;
+              padding-top: 20px;
+            }
+            .inner-hadder-list {
+              width: 80%;
+              display: flex;
+              justify-content: space-evenly;
+            }
+            .inner-hadder-list a {
+              color: black;
+            }
+            .inner-hadder-list a i {
+              padding-left: 4px;
+              padding-top: 2px;
+            }
+            .inner-hadder-city {
+              width: 20%;
+            }
+            .inner-hadder-city span {
+              color: rgb(145,147,149);
+              padding-left: 70px;
+              padding-top: 10px;
+            }
+            .inner-hadder-city span a {
+              color: rgb(145,147,149);
+            }
+            .search-area {
+              width: 1400px;
+              margin: 0 auto;
+              position: relative;
+            }
+            .search-area .background-img {
+              width: 1400px;
+              margin: 0 auto;
+            }
+            .search-area .background-img img {
+              width: 100%;
+              position: relative;
+            }
+            .entery-box {
+              position: absolute;
+              top: 10px;
+              left: 40px;
+              background-color: white;
+              height: 400px;
+              width: 330px;
+              border-radius: 10px;
+              text-align: center;
+            }
+            .entery-box h1 {
+            padding-top: 20px;
+            }
+            .entery-box-button {
+              display: flex;
+              justify-content: space-evenly;
+              padding-top: 20px;
+            }
+            .entery-box-button .button-new {
+              border: 1px solid;
+              height: 50px;
+              width: 120px;
+              background-color:rgb(36,39,44) ;
+              border: 1px solid rgb(36,39,44);
+              color: white;
+              font-size: 16px;
+              border-radius: 5px;
+              margin-left: 30px;
+            }
+            .entery-box-button .button-used {
+              border: 1px solid;
+              height: 50px;
+              width: 120px;
+              background-color: white;
+              font-size: 16px;
+              border-radius: 5px;
+              margin-right: 30px;
+            }
+            .button-new:hover {
+              background-color:rgb(36,39,44) ;
+              border: 1px solid rgb(36,39,44);
+              color: white;
+            }
+            .button-used:hover {
+              background-color:rgb(36,39,44) ;
+              border: 1px solid rgb(36,39,44);
+              color: white;
+            }
+            .radio-buttens {
+              padding-top: 20px;
+              display: flex;
+              justify-content: start;
+            }
+            .radio-buttens span {
+              padding-left: 40px;
+              color: rgb(215,78,78);
+              font-size: medium;
+            }
+            .radio-buttens span input {
+              margin-right: 10px;
+            }
+            .select-wraper {
+              padding-top: 15px;
+            }
+            .select-wraper select {
+              height: 45px;
+              width: 275px;
+              border: 1px solid rgb(145,147,149);
+            }
+            .select-wraper-second select {
+              height: 45px;
+              width: 275px;
+              border: 1px solid rgb(145,147,149);
+              border-top: none;
+            }
+            .search-butten {
+              padding-top: 15px;
+            }
+            .search-butten button{
+              height: 45px;
+              width: 275px;
+              background-color: rgb(208,47,47);
+              border: 1px solid rgb(208,47,47) ;
+              font-size: 20px;
+              color: white;
+              font: bold;
+              border-radius: 5px;
+            }
+            .third-part {
+              width: 1250px;
+              height: 500px;
+              margin: 0 auto;
+              background-color: white;   
+              margin-top: 20px;
+            }
+            .third-part h3 {
+              padding-left: 30px;
+              padding-top: 20px;
+            }
+            .third-part-list {
+              display: flex;
+              justify-content: start;
+              width: 1200px;
+              padding-top: 10px;
+              border-bottom: 2px solid rgb(222,223,224);
+              padding-left: 20px;
+            }
+            .third-part-list a {
+              color: black;
+              padding-bottom: 10px;
+              padding-left: 10px;
+              padding-right: 15px;
+            }
+            .third-part-list a:hover {
+              border-bottom: 2px solid rgb(208,63,80);
+              color: rgb(208,63,80);
+            }
+            .third-part-img-wraper {
+              width: 1200px;
+              height: 350px;
+              margin: 0 auto;
+              padding-top: 15px;
+              display: flex;
+              justify-content: space-evenly;
+              border-bottom: 1px solid rgb(222,223,224);
+              padding-bottom: 15px;
+            }
+            .third-part-img {
+              height: 280px;
+              width: 250px;
+              border: 1px solid gray;
+              
+            }
+            .third-part-img img {
+              width: 248px;
+              height: 170px;
+            }
+            .third-part-img .for-text a {
+              color: rgb(36,39,71);
+              padding-left: 10px;
+              padding-top: 5px;
+            }
+            .third-part-img .for-text p {
+              padding-left: 10px;
+              font: 20px;
+              color: rgb(36,39,71);
+              padding-top: 5px;
+            }
+            .third-part-img .for-text button {
+              background-color: white;
+              width: 230px;
+              padding: 10px 20px;
+              margin-top: 12px;
+              border: 1px solid rgb(208,63,80);
+              color: red;
+              margin-left: 10px;
+            }
+            .all-popular a {
+              margin-left: 30px;
+              color: rgb(82,158,205);
+            }
+            .forth-part {
+              width: 1250px;
+              height: 330px;
+              margin: 0 auto;
+              background-color: white;   
+              margin-top: 20px;
+            }
+            .forth-part h3 {
+              padding-left: 30px;
+              padding-top: 20px;
+            }
+            .forth-part-img-wraper {
+              display: flex;
+              justify-content: space-evenly;
+              width: 1200px;
+              margin-top: 20px;
+            }
+            .forth-part-img {
+              border:1px solid rgb(244,244,245);
+              width: 175px;
+              height: 145px;
+            }
+            .forth-part-ancor {
+              text-align: center;
+            }
+            .all-bick-brand {
+              margin-top: 25px;
+              border-top: 1px solid rgb(222,223,224);
+            }
+            .all-bick-brand  a{
+              padding-left: 20px;
+              color: rgb(82,158,205);
+            }
+            .fifth-part {
+              width: 1250px;
+              height: 500px;
+              margin: 0 auto;
+              background-color: white;   
+              margin-top: 20px;
+            }
+            .fifth-part h3 {
+              padding-left: 30px;
+              padding-top: 20px;
+            }
+            .fifth-part-img-wraper {
+              width: 1200px;
+              height: 350px;
+              margin: 0 auto;
+              padding-top: 15px;
+              display: flex;
+              justify-content: space-evenly;
+              border-bottom: 1px solid rgb(222,223,224);
+              padding-bottom: 15px;
+            }
+            .fifth-part-list {
+              display: flex;
+              justify-content: start;
+              width: 1200px;
+              padding-top: 10px;
+              border-bottom: 2px solid rgb(222,223,224);
+              padding-left: 20px;
+            }
+            .fifth-part-list a {
+              color: black;
+              padding-bottom: 10px;
+              padding-left: 10px;
+              padding-right: 15px;
+            }
+            .fifth-part-list a:hover {
+              border-bottom: 2px solid rgb(208,63,80);
+              color: rgb(208,63,80);
+            }
+            .fifth-part-img {
+              border:1px solid rgb(244,244,245);
+              width: 350px;
+              height: 300px;
+            }
+            .fifth-part-image {
+              display: flex;
+              position: absolute;
+            }
+            .fifth-part-image img {
+              width: 174px;
+              height: 150px;
+            }
+            .img-vs {
+              position: absolute;
+              top: 60px;
+              left: 164px;
+              background-color: rgb(36,39,44);
+              border-radius: 50%;
+              height: 30px;
+              width: 30px;
+            }
+            .img-vs span {
+              color: white;
+            }
+            .fifth-part-boxes {
+              display: flex;
+            }
+            .state {
+              border: 1px solid rgb(244,244,245);
+              height: 160px;
+              width: 250px;
+              text-align: center;
+              margin: 0 15px;
+            }
+            .state img {
+              height: 100px;
+              width: 90px;
+            }
+            .state a {
+              font-size: 10px;
+              color: rgb(145,147,149) ;
+            }
+            .state p {
+              font-size: 20px;
+              color: rgb(100,39,105);
+            }
+            .upper-states-wraper {
+              display: flex;
+              justify-content: space-evenly;
+            }
+            .states-wraper {
+              width: 75%;
+            }
+            .state-button {
+              width: 25%;
+            }
+            .lower-ststes-wraper {
+             display: flex;
+             justify-content: space-evenly;
+             margin-top: 20px;
+            }
+            .sixth-part {
+              width: 1250px;
+              height: 500px;
+              margin: 0 auto;
+              background-color: white;   
+              margin-top: 20px;
+            }
+            .sixth-part-img-wraper {
+              width: 1200px;
+              height: 380px;
+              margin: 0 auto;
+              padding-top: 15px;
+              display: flex;
+              justify-content: space-evenly;
+              border-bottom: 1px solid rgb(222,223,224);
+              padding-bottom: 15px;
+            }
+            .sixth-part h3 {
+              padding-left: 30px;
+              padding-top: 20px;
+            }
+            .states-big-wraper {
+              display: flex;  
+            }
+            .states-button-p {
+              padding-top: 80px;
+              text-align: center;
+              color: rgb(120,121,125);
+            }
+            .states-button-pp {
+              text-align: center;
+              color: rgb(120,121,125);
+            }
+            .states-button select {
+              padding-right: 140px;
+              margin-top: 20px;
+              height: 40px;
+              border: 1px solid rgb(222,223,224);
+              color: rgb(145,147,180);
+              margin-left: 10px;
+            }
+            .states-big-wraper {
+              width: 1200px;
+            }
+            .last-part-wraper {
+              width: 1250px;
+              height: 300px;
+              margin: 0 auto;
+              background-color: white;   
+              margin-top: 20px;
+            }
+            .last-part-wraper h3 {
+              padding-left: 30px;
+              padding-top: 20px;
+            }
+            .last-part-logo {
+              display: flex;
+              justify-content: space-evenly;
+              padding-top: 20px;
+            }
+            .last-part{
+              display: flex;
+            justify-content: space-evenly;            }
+            .last-left{
+              width: 520px;
+              margin-left: 40px;
+              margin-top: 40px;
+            }
+            .last-left ul {
+              display: flex;
+              justify-content: space-around;
+              margin-bottom: 10px;
+            }
+            .last-left ul li{
+              font-size: 18;
+              font-weight: 200;      
+            }
+            .last-right{
+              width: 250px;
+              margin-top: 40px;
+            }
+            .last-right div{
+              display: flex;
+            justify-content: space-around;   
+            margin-left: 40px;     
+              }
+              .last-right div i{
+                font-size: 22px;
+              }
+
+</style>
+    </head>
+    <body>
+      <div class="hadder-wraper">
+        <div class="hadder">
+          <div class="logo-wraper">
+            <img src="bickdekhologo.svg">
+          </div>
+          <div class="search-wraper">
+            <input type="search" placeholder="Search Bikes or Scooters eg. YZF R15 V3, Activa 6G">
+            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+          </div>
+          <div class="login-wraper">
+            <div class="laguage-wraper">
+              <span>English<i class="fa fa-caret-down" aria-hidden="true"></i></span>
+              <ul class="language-ul">
+                <li class="li-eng">English</li>
+                <li>हिन्दी</li>
+              </ul>
+            </div>
+            <div class="login-register-wraper">
+              <a href="#"><i class="fa fa-user-o" aria-hidden="true"></i>Login/Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="second-hadder-wraper">
+        <div class="hadder-list-wraper">
+          <div class="hadder-list">
+            <div class="inner-hadder-list">
+              <a href="#">BIKES<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <a href="#">SCOOTERS<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <a href="#">Electric zone<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <a href="#">Bick Fnence<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <a href="#">Used Bicks<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <a href="#">Sale Bikes</a>
+              <a href="#">Compare</a>
+              <a href="#">News&Reviews<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+              <a href="#">more<i class="fa fa-caret-down" aria-hidden="true"></i></a>
+            </div>
+            <div class="inner-hadder-city">
+              <span><i class="fa fa-map-marker" aria-hidden="true"></i><a href="#">Select City</a></span>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="search-area">
+        <div class="background-img">
+          <img src="ktmbg.avif">
+        </div>
+        <div class="entery-box">
+          <h1>Search the right bike</h1>
+          <div class="entery-box-button">
+            <button class="button-new">New Bike</button>
+            <button class="button-used">Used Bike</button>
+          </div>
+          <div class="radio-buttens">
+            <span><input type="radio" name="by">By brand</span>
+            <span><input type="radio" name="by">By Budget</span>
+          </div>
+          <div class="select-wraper">
+            <select>
+              <option>Select Brand</option>
+              <option>Royal Enfield</option>
+              <option>TVS</option>
+              <option>Bajaj</option>
+              <option>Hero</option>
+              <option>Yamaha</option>
+            </select>
+          </div>
+          <div class="select-wraper-second">
+            <select>
+              <option>Select Brand</option>
+              <option>Royal Enfield</option>
+              <option>TVS</option>
+              <option>Bajaj</option>
+              <option>Hero</option>
+              <option>Yamaha</option>
+            </select>
+          </div>
+          <div class="search-butten">
+            <button>search</button>
+          </div>
+        </div>
+        <div class="third-part">
+          <h3>Bikes in Spotlight</h3>
+          <div class="third-part-list">
+            <a href="#">Most Popular</a>
+            <a href="#">Sports Bikes</a>
+            <a href="#">Best Mileage Bikes</a>
+            <a href="#">Cruiser Bikes</a>
+            <a href="#">Commuter Bikes</a>
+            <a href="#">Off Road Bikes</a>
+          </div>
+          <div class="third-part-img-wraper">
+            <div class="third-part-img">
+              <img src="https://bd.gaadicdn.com/processedimages/yamaha/mt-15-2-0/640X309/mt-15-2-063ea25b00fa58.jpg?tr=w-264">
+              <div class="for-text">
+                <a href="#">Yamaha MT 15 V2</a>
+              <p>Rs1.65 - 1.69 Lakh*</p>
+              <button>view my offers</button>  
+              </div>      
+            </div>
+            <div class="third-part-img">
+              <img src="spl.webp">
+              <div class="for-text">
+                <a href="#">Hero Splendor Plus</a>
+              <p>Rs73,481 - 74,801*</p>
+              <button>view my offers</button>
+              </div>
+            </div>
+            <div class="third-part-img">
+              <img src="ninja.webp">
+              <div class="for-text" >
+                <a href="#">Kawasaki Ninja ZX-10R</a>
+              <p>Rs15.99 - 16.31 Lakh*</p>
+              <button>view my offers</button>
+              </div>
+            </div>
+            <div class="third-part-img">
+              <img src="royal.webp">
+              <div class="for-text">
+                <a href="#">Royal Enfield Hunter 350</a>
+              <p>Rs1.50 - 1.72 Lakh*</p>
+              <button>view my offers</button>
+              </div>
+            </div>
+          </div>
+          <div class="all-popular"><a href="#">View All Most Popular</a></div>
+      </div>
+      <div class="forth-part">
+        <h3>Bikes in Spotlight</h3>
+          <div class="third-part-list">
+            <a href="#">Bike</a>
+            <a href="#">Scooter</a>
+            <a href="#">Electric</a>
+          </div>
+          <div class="forth-part-img-wraper">
+            <div class="forth-part-img">
+              <img src="https://bd.gaadicdn.com/pwa/img/brandLogo_168x84/tvs.jpg">
+              <div class="forth-part-ancor">
+                <a href="#">TVS</a> 
+              </div>                  
+            </div>
+            <div class="forth-part-img">
+             <img src="https://bd.gaadicdn.com/pwa/img/brandLogo_168x84/bajaj.jpg">
+              <div class="forth-part-ancor">
+               <a href="#">Bajaj</a> 
+              </div>                  
+            </div>
+            <div class="forth-part-img">
+              <img src="https://bd.gaadicdn.com/pwa/img/brandLogo_168x84/royal-enfield.jpg">
+               <div class="forth-part-ancor">
+                 <a href="#">Royal Enfield</a> 
+               </div>                  
+            </div>
+            <div class="forth-part-img">
+              <img src="https://bd.gaadicdn.com/pwa/img/brandLogo_168x84/yamaha.jpg">
+              <div class="forth-part-ancor">
+               <a href="#">Yamaha</a> 
+              </div>                  
+           </div>
+           <div class="forth-part-img">
+              <img src="https://bd.gaadicdn.com/pwa/img/brandLogo_168x84/honda.jpg">
+             <div class="forth-part-ancor">
+               <a href="#">Honda</a> 
+             </div>                  
+            </div>
+            <div class="forth-part-img">
+             <img src="https://bd.gaadicdn.com/pwa/img/brandLogo_168x84/hero.jpg">
+             <div class="forth-part-ancor">
+               <a href="#">Hero</a> 
+             </div>                  
+            </div>
+          </div>
+          <div class="all-bick-brand"><a href="#">All bick brand</a></div>
+      </div>
+      <div class="third-part">
+        <h3>Bikes in Spotlight</h3>
+        <div class="third-part-list">
+          <a href="#">Bikes</a>
+          <a href="#">Scooters</a>
+        </div>
+        <div class="third-part-img-wraper">
+          <div class="third-part-img">
+            <img src="ele1.webp">
+            <div class="for-text">
+              <a href="#">Revolt RV400</a>
+            <p>Rs1.25 Lakh*</p>
+            <button>view my offers</button>  
+            </div>      
+          </div>
+          <div class="third-part-img">
+            <img src="ele2.avif">
+            <div class="for-text">
+              <a href="#">Hero Splendor Plus</a>
+            <p>Rs73,481 - 74,801*</p>
+            <button>view my offers</button>
+            </div>
+          </div>
+          <div class="third-part-img">
+            <img src="ele3.avif">
+            <div class="for-text" >
+              <a href="#">Kawasaki Ninja ZX-10R</a>
+            <p>Rs15.99 - 16.31 Lakh*</p>
+            <button>view my offers</button>
+            </div>
+          </div>
+          <div class="third-part-img">
+            <img src="ele4.avif">
+            <div class="for-text">
+              <a href="#">Royal Enfield Hunter 350</a>
+            <p>Rs1.50 - 1.72 Lakh*</p>
+            <button>view my offers</button>
+            </div>
+          </div>
+        </div>
+        <div class="all-popular"><a href="#">View All Electric Bikes</a></div>
+    </div>
+    <div class="third-part">
+      <h3>Latest Bikes</h3>
+      <div class="third-part-img-wraper">
+        <div class="third-part-img">
+          <img src="l1.avif">
+          <div class="for-text">
+            <a href="#">Revolt RV400</a>
+          <p>Rs1.25 Lakh*</p>
+          <button>view my offers</button>  
+          </div>      
+        </div>
+        <div class="third-part-img">
+          <img src="l2.avif">
+          <div class="for-text">
+            <a href="#">Hero Splendor Plus</a>
+          <p>Rs73,481 - 74,801*</p>
+          <button>view my offers</button>
+          </div>
+        </div>
+        <div class="third-part-img">
+          <img src="l3.avif">
+          <div class="for-text" >
+            <a href="#">Kawasaki Ninja ZX-10R</a>
+          <p>Rs15.99 - 16.31 Lakh*</p>
+          <button>view my offers</button>
+          </div>
+        </div>
+        <div class="third-part-img">
+          <img src="l4.avif">
+          <div class="for-text">
+            <a href="#">Royal Enfield Hunter 350</a>
+          <p>Rs1.50 - 1.72 Lakh*</p>
+          <button>view my offers</button>
+          </div>
+        </div>
+      </div>
+      <div class="all-popular"><a href="#">View All Latest Bikes</a></div>
+  </div>
+  <div class="third-part">
+    <h3>Online Booking Available</h3>
+    <div class="third-part-img-wraper">
+      <div class="third-part-img">
+        <img src="	https://bd.gaadicdn.com/processedimages/okaya/faast/640X309/faast63f30b088ce9a.jpg">
+        <div class="for-text">
+          <a href="#">Revolt RV400</a>
+        <p>Rs1.25 Lakh*</p>
+        <button>view my offers</button>  
+        </div>      
+      </div>
+      <div class="third-part-img">
+        <img src="https://bd.gaadicdn.com/processedimages/okaya/faast-f2b/640X309/faast-f2b633a86247c32c.jpg">
+        <div class="for-text">
+          <a href="#">Hero Splendor Plus</a>
+        <p>Rs73,481 - 74,801*</p>
+        <button>view my offers</button>
+        </div>
+      </div>
+      <div class="third-part-img">
+        <img src="	https://bd.gaadicdn.com/processedimages/okaya/classiq/640X309/classiq63329c78b4a86.jpg">
+        <div class="for-text" >
+          <a href="#">Kawasaki Ninja ZX-10R</a>
+        <p>Rs15.99 - 16.31 Lakh*</p>
+        <button>view my offers</button>
+        </div>
+      </div>
+      <div class="third-part-img">
+        <img src="	https://bd.gaadicdn.com/processedimages/okaya/freedum/640X309/freedum63329c85002c0.jpg">
+        <div class="for-text">
+          <a href="#">Royal Enfield Hunter 350</a>
+        <p>Rs1.50 - 1.72 Lakh*</p>
+        <button>view my offers</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="sixth-part">
+  <h3>Get trusted used bikes nearby</h3>
+      <div class="sixth-part-img-wraper">
+        <div class="states-big-wraper">
+          <div class="states-wraper">
+            <div class="upper-states-wraper">
+              <div class="state">
+                <img src="	https://bd.gaadicdn.com/pwa/img/ahmedabad.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+              <div class="state">
+                <img src="	https://bd.gaadicdn.com/pwa/img/bangalore.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+              <div class="state">
+                <img src="	https://bd.gaadicdn.com/pwa/img/chandigarh.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+              <div class="state">
+                <img src="  https://bd.gaadicdn.com/pwa/img/chennai.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+            </div>
+            <div class="lower-ststes-wraper">
+              <div class="state">
+                <img src="	https://bd.gaadicdn.com/pwa/img/delhi.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+              <div class="state">
+                <img src="https://bd.gaadicdn.com/pwa/img/ghaziabad.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+              <div class="state">
+                <img src="	https://bd.gaadicdn.com/pwa/img/gurgaon.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+              <div class="state">
+                <img src="  https://bd.gaadicdn.com/pwa/img/hyderabad.svg">
+                <div>
+                  <a href="#">Used bikes in</a>
+                  <p>Ahmedabad</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="states-button">
+            <p class="states-button-p">I am looking to buy a second</p>
+            <p class="states-button-pp">hand bike in</p>
+              <select>
+                <option><i class="fa fa-map-marker" aria-hidden="true"></i>Enter your city</option>
+                <option><h5>Popular citys</h5></option>
+                <option>delhi</option>
+                <option>utter pradesh</option>
+                <option>uttra khand</option>
+                <option>chennai</option>
+                <option>bangalore</option>
+              </select>  
+          </div>
+        </div>
+      </div>
+</div>      
+  <div class="last-part-wraper">
+    <h3>CarDekho Group Ventures</h3>
+    <div class="last-part-logo">
+      <img src="https://bd.gaadicdn.com/pwa/img/footer_cd_logo.svg?v=1.0">
+      <img src="https://bd.gaadicdn.com/pwa/img/zigwheels-logo.svg?v=1.0">
+      <img src="https://bd.gaadicdn.com/pwa/img/Insurance-Dekho.svg?v=1.0">
+      <img src="https://bd.gaadicdn.com/pwa/img/rupyy-logo.svg?v=1.0">
+    </div>
+    <div class="last-part">
+      <div class="last-left">
+        <ul>
+          <li>About Us |</li>
+          <li>Contact Us |</li>
+          <li>Terms & Conditions |</li>
+          <li>Privacy Policy |</li>
+          <li>Feedback</li>
+        </ul>
+        <ul>
+          <li>Call us- 0141-6772003</li>
+          <li>Email- support@bikedekho.com</li>
+        </ul>
+      </div>
+      <div class="last-right">
+        <div>
+          <p>follow us :</p>
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+    </body>
+</html>
